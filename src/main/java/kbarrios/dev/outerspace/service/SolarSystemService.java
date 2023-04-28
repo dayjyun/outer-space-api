@@ -1,5 +1,6 @@
 package kbarrios.dev.outerspace.service;
 
+import kbarrios.dev.outerspace.exceptions.AlreadyExistsException;
 import kbarrios.dev.outerspace.exceptions.NotFoundException;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
@@ -27,7 +28,16 @@ public class SolarSystemService {
       if(solarSystem.isPresent()) {
          return solarSystem;
       } else {
-         throw new NotFoundException("Solar system not found");
+         throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
+      }
+   }
+
+   public SolarSystem createSolarSystem(SolarSystem solarSystemBody) {
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findByName(solarSystemBody.getName());
+      if(solarSystem.isPresent()) {
+         throw new AlreadyExistsException("Solar System already exists");
+      } else {
+         return solarSystemRepository.save(solarSystemBody);
       }
    }
 }

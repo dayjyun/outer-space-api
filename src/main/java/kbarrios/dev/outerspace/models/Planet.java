@@ -34,13 +34,16 @@ public class Planet {
 
    public Planet() {}
 
-   public Planet(Long id, String name, Long distanceFromSun, Long lengthOfYear, Long sizeComparedToEarth, boolean habitable) {
+   public Planet(Long id, String name, Long distanceFromSun, Long lengthOfYear, Long sizeComparedToEarth, boolean habitable,
+                 SolarSystem solarSystem) {
       this.id = id;
       this.name = name;
       this.distanceFromSun = distanceFromSun;
       this.lengthOfYear = lengthOfYear;
       this.sizeComparedToEarth = sizeComparedToEarth;
       this.habitable = habitable;
+      this.solarSystem = solarSystem;
+
    }
 
    public Long getId() {
