@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface SolarSystemRepository extends JpaRepository<SolarSystem, Long> {
-   SolarSystem findSolarSystemById(Long solarSystemId);
+//   SolarSystem findSolarSystemById(Long solarSystemId);
 
    SolarSystem findSolarSystemByName(String solarSystemName);
 
