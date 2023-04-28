@@ -9,3 +9,4 @@
 - [Spring Data JPA](https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa)
 - [JJWT :: API](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api)
 - [JJWT :: Impl](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl)
+- [JJWT :: Extensions :: Jackson](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson)
