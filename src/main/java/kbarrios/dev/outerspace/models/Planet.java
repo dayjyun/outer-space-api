@@ -63,6 +63,14 @@ public class Planet {
       return lengthOfYear;
    }
 
+   public void setLengthOfYear(Long lengthOfYear) {
+      this.lengthOfYear = lengthOfYear;
+   }
+
+   public Long getSizeToEarth() {
+      return sizeToEarth;
+   }
+
    public void setSizeToEarth(Long sizeToEarth) {
       this.sizeToEarth = sizeToEarth;
    }
