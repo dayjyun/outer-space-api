@@ -1,5 +1,8 @@
 package kbarrios.dev.outerspace.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Planet {
    private Long id;
    private String name;
