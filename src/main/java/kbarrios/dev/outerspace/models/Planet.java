@@ -28,7 +28,7 @@ public class Planet {
    private boolean habitable;
 
    @ManyToOne
-   @JoinColumn(name = "solary_system_id")
+   @JoinColumn(name = "solary_system_id", referencedColumnName = "id")
    @JsonIgnore
    private SolarSystem solarSystem;
 

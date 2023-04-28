@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="solary_systems")
+@Table(name="solar_systems")
 public class SolarSystem {
    @Column
    @Id
@@ -26,7 +26,7 @@ public class SolarSystem {
    @Column
    private Long sizeComparedToEarth;
 
-   @OneToMany(mappedBy = "solar_system", orphanRemoval = true)
+   @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
    private List<Planet> planetList;
 
