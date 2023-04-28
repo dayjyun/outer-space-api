@@ -56,4 +56,15 @@ public class SolarSystem {
    public void setSizeComparedToEarth(Long sizeComparedToEarth) {
       this.sizeComparedToEarth = sizeComparedToEarth;
    }
+
+   @Override
+   public String toString() {
+      return "SolarSystem{" +
+              "id=" + id +
+              ", name='" + name + '\'' +
+              ", ageInBillions=" + ageInBillions +
+              ", type='" + type + '\'' +
+              ", sizeComparedToEarth=" + sizeComparedToEarth +
+              '}';
+   }
 }
