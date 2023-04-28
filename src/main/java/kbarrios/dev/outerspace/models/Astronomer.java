@@ -76,6 +76,7 @@ public class Astronomer {
    public String toString() {
       return "Astronomer{" +
               "id=" + id +
+              ", name='" + name + '\'' +
               ", username='" + username + '\'' +
               ", email='" + email + '\'' +
               ", password='" + password + '\'' +
