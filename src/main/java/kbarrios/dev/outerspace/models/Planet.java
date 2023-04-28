@@ -1,5 +1,7 @@
 package kbarrios.dev.outerspace.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,7 +28,8 @@ public class Planet {
    private boolean habitable;
 
    @ManyToOne
-   @JoinColumn(name = "solary_system_id", referencedColumnName = "id")
+   @JoinColumn(name = "solary_system_id")
+   @JsonIgnore
    private SolarSystem solarSystem;
 
    public Planet() {}
