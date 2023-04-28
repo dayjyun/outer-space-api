@@ -1,6 +1,10 @@
 package kbarrios.dev.outerspace.models;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="solary_systems")
@@ -21,6 +25,10 @@ public class SolarSystem {
 
    @Column
    private Long sizeComparedToEarth;
+
+   @OneToMany(mappedBy = "solar_system", orphanRemoval = true)
+   @LazyCollection(LazyCollectionOption.FALSE)
+   private List<Planet> planetList;
 
    public SolarSystem() {}
 
@@ -70,6 +78,14 @@ public class SolarSystem {
 
    public void setSizeComparedToEarth(Long sizeComparedToEarth) {
       this.sizeComparedToEarth = sizeComparedToEarth;
+   }
+
+   public List<Planet> getPlanetList() {
+      return planetList;
+   }
+
+   public void setPlanetList(List<Planet> planetList) {
+      this.planetList = planetList;
    }
 
    @Override

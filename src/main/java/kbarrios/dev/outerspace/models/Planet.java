@@ -25,6 +25,10 @@ public class Planet {
    @Column
    private boolean habitable;
 
+   @ManyToOne
+   @JoinColumn(name = "solary_system_id", referencedColumnName = "id")
+   private SolarSystem solarSystem;
+
    public Planet() {}
 
    public Planet(Long id, String name, Long distanceFromSun, Long lengthOfYear, Long sizeComparedToEarth, boolean habitable) {
@@ -82,6 +86,14 @@ public class Planet {
 
    public void setHabitable(boolean habitable) {
       this.habitable = habitable;
+   }
+
+   public SolarSystem getSolarSystem() {
+      return solarSystem;
+   }
+
+   public void setSolarSystem(SolarSystem solarSystem) {
+      this.solarSystem = solarSystem;
    }
 
    @Override
