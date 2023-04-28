@@ -83,4 +83,16 @@ public class Planet {
    public void setHabitable(boolean habitable) {
       this.habitable = habitable;
    }
+
+   @Override
+   public String toString() {
+      return "Planet{" +
+              "id=" + id +
+              ", name='" + name + '\'' +
+              ", distanceFromSun=" + distanceFromSun +
+              ", lengthOfYear=" + lengthOfYear +
+              ", sizeComparedToEarth=" + sizeComparedToEarth +
+              ", habitable=" + habitable +
+              '}';
+   }
 }
