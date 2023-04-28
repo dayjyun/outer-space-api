@@ -46,4 +46,14 @@ public class Astronomer {
    public void setPassword(String password) {
       this.password = password;
    }
+
+   @Override
+   public String toString() {
+      return "Astronomer{" +
+              "id=" + id +
+              ", username='" + username + '\'' +
+              ", email='" + email + '\'' +
+              ", password='" + password + '\'' +
+              '}';
+   }
 }
