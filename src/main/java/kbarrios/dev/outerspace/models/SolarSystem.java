@@ -1,10 +1,25 @@
 package kbarrios.dev.outerspace.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="solary_systems")
 public class SolarSystem {
+   @Column
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
+   
+   @Column
    private String name;
+
+   @Column
    private Long ageInBillions;
+
+   @Column
    private String type;
+
+   @Column
    private Long sizeComparedToEarth;
 
    public SolarSystem() {}
