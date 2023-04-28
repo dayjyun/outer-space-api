@@ -1,14 +1,28 @@
 package kbarrios.dev.outerspace.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name="planets")
 public class Planet {
+   @Column
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
+
+   @Column
    private String name;
+
+   @Column
    private Long distanceFromSun;
+
+   @Column
    private Long lengthOfYear;
+
+   @Column
    private Long sizeToEarth;
+
+   @Column
    private boolean habitable;
 
    public Planet() {}
@@ -49,8 +63,8 @@ public class Planet {
       return lengthOfYear;
    }
 
-   public void setLengthOfYear(Long lengthOfYear) {
-      this.lengthOfYear = lengthOfYear;
+   public void setSizeToEarth(Long sizeToEarth) {
+      this.sizeToEarth = sizeToEarth;
    }
 
    public boolean isHabitable() {
