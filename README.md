@@ -6,3 +6,4 @@
 - [Spring Boot Starter Web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 - [Spring Boot Starter Security](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security)
 - [PostgreSQL Driver](https://mvnrepository.com/artifact/org.postgresql/postgresql)
+- [Spring Data JPA](https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa)
