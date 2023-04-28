@@ -1,9 +1,22 @@
 package kbarrios.dev.outerspace.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="astronomers")
 public class Astronomer {
+   @Column
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
+
+   @Column(unique = true)
    private String username;
+
+   @Column(unique = true)
    private String email;
+
+   @Column
    private String password;
 
    public Astronomer() {}
