@@ -58,4 +58,14 @@ public class Planet {
       this.habitable = habitable;
    }
 
+   @Override
+   public String toString() {
+      return "Planet{" +
+              "id=" + id +
+              ", name='" + name + '\'' +
+              ", distanceFromSun=" + distanceFromSun +
+              ", lengthOfYear=" + lengthOfYear +
+              ", habitable=" + habitable +
+              '}';
+   }
 }
