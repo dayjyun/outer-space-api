@@ -110,6 +110,14 @@ public class Planet {
       this.solarSystem = solarSystem;
    }
 
+   public Timestamp getCreatedAt() {
+      return createdAt;
+   }
+
+   public void setCreatedAt(Timestamp createdAt) {
+      this.createdAt = createdAt;
+   }
+
    @Override
    public String toString() {
       return "Planet{" +
