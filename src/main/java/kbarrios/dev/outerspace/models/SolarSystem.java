@@ -1,13 +1,13 @@
 package kbarrios.dev.outerspace.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -31,10 +31,11 @@ public class SolarSystem {
    @Column
    private Long sizeComparedToEarth;
 
-//   @Column
-//   @Temporal(TemporalType.TIMESTAMP)
-//   @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
-//   private LocalDateTime createdAt;
+   @Column
+   @CreationTimestamp
+   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH-mm-ss")
+   private Timestamp createdAt;
+
 
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
@@ -48,7 +49,6 @@ public class SolarSystem {
       this.ageInBillions = ageInBillions;
       this.type = type;
       this.sizeComparedToEarth = sizeComparedToEarth;
-//      this.createdAt = createdAt;
    }
 
    public Long getId() {
@@ -98,14 +98,6 @@ public class SolarSystem {
    public void setPlanetList(List<Planet> planetList) {
       this.planetList = planetList;
    }
-//
-//   public LocalDateTime getCreatedAt() {
-//      return createdAt;
-//   }
-//
-//   public void setCreatedAt(LocalDateTime createdAt) {
-//      this.createdAt = createdAt;
-//   }
 
    @Override
    public String toString() {
@@ -115,6 +107,8 @@ public class SolarSystem {
               ", ageInBillions=" + ageInBillions +
               ", type='" + type + '\'' +
               ", sizeComparedToEarth=" + sizeComparedToEarth +
+              ", createdAt=" + createdAt +
+              ", planetList=" + planetList +
               '}';
    }
 }
