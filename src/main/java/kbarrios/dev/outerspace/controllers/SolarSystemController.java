@@ -38,4 +38,9 @@ public class SolarSystemController {
    public SolarSystem updateSolarSystem(@PathVariable Long solarSystemId, @RequestBody SolarSystem solarSystemBody) {
       return solarSystemService.updateSolarSystem(solarSystemId, solarSystemBody);
    }
+
+   @DeleteMapping(path = "/{solarSystemId}")
+   public Optional<SolarSystem> deleteSolarSystem(@PathVariable Long solarSystemId) {
+      return solarSystemService.deleteSolarSystem(solarSystemId);
+   }
 }

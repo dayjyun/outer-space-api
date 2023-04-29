@@ -7,6 +7,7 @@ import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,6 +60,16 @@ public class SolarSystemService {
             updatedSolarSystem.setSizeComparedToEarth(solarSystemBody.getSizeComparedToEarth());
             return solarSystemRepository.save(updatedSolarSystem);
          }
+      } else {
+         throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
+      }
+   }
+
+   public Optional<SolarSystem> deleteSolarSystem(Long solarSystemId) {
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
+      if(solarSystem.isPresent()) {
+         solarSystemRepository.deleteById(solarSystemId);
+         return solarSystem;
       } else {
          throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
       }
