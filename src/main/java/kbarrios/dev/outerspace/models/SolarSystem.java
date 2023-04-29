@@ -19,7 +19,7 @@ public class SolarSystem {
    private Long id;
 
    @Column
-   @NotNull(message = "Please enter a name for the new solar system")
+   @NotNull(message = "Solar System needs a name")
    private String name;
 
    @Column

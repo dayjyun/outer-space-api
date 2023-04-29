@@ -5,12 +5,19 @@ import kbarrios.dev.outerspace.exceptions.NotFoundException;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+
 public class SolarSystemService {
    private SolarSystemRepository solarSystemRepository;
 
@@ -25,7 +32,7 @@ public class SolarSystemService {
 
    public Optional<SolarSystem> getSolarSystemById(Long solarSystemId) {
       Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
-      if(solarSystem.isPresent()) {
+      if (solarSystem.isPresent()) {
          return solarSystem;
       } else {
          throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
@@ -34,10 +41,14 @@ public class SolarSystemService {
 
    public SolarSystem createSolarSystem(SolarSystem solarSystemBody) {
       Optional<SolarSystem> solarSystem = solarSystemRepository.findByName(solarSystemBody.getName());
-      if(solarSystem.isPresent()) {
+      if (solarSystem.isPresent()) {
          throw new AlreadyExistsException("Solar System already exists");
       } else {
-         return solarSystemRepository.save(solarSystemBody);
+         if (solarSystemBody.getName().isEmpty() || solarSystemBody.getName() == null) {
+             throw new NotFoundException("Solar System needs a name");
+         } else {
+            return solarSystemRepository.save(solarSystemBody);
+         }
       }
    }
 }
