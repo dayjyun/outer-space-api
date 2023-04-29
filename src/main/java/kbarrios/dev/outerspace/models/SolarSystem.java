@@ -106,7 +106,6 @@ public class SolarSystem {
       this.planetList = planetList;
    }
 
-
    @Override
    public String toString() {
       return "SolarSystem{" +
