@@ -45,4 +45,22 @@ public class SolarSystemService {
          }
       }
    }
+
+   public SolarSystem updateSolarSystem(Long solarSystemId, SolarSystem solarSystemBody){
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
+      if(solarSystem.isPresent()) {
+         if(solarSystem.get().getName().equals(solarSystemBody.getName())) {
+            throw new AlreadyExistsException("Solar system already exists");
+         } else {
+            SolarSystem updatedSolarSystem = solarSystemRepository.findById(solarSystemId).get();
+            updatedSolarSystem.setName(solarSystemBody.getName());
+            updatedSolarSystem.setAgeInBillions(solarSystemBody.getAgeInBillions());
+            updatedSolarSystem.setType(solarSystemBody.getType());
+            updatedSolarSystem.setSizeComparedToEarth(solarSystemBody.getSizeComparedToEarth());
+            return solarSystemRepository.save(updatedSolarSystem);
+         }
+      } else {
+         throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
+      }
+   }
 }

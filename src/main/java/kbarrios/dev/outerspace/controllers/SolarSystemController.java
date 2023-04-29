@@ -33,4 +33,9 @@ public class SolarSystemController {
    public SolarSystem createSolarSystem(@RequestBody @Valid SolarSystem solarSystemBody) {
       return solarSystemService.createSolarSystem(solarSystemBody);
    }
+
+   @PutMapping(path = "/{solarSystemId}")
+   public SolarSystem updateSolarSystem(@PathVariable Long solarSystemId, @RequestBody SolarSystem solarSystemBody) {
+      return solarSystemService.updateSolarSystem(solarSystemId, solarSystemBody);
+   }
 }
