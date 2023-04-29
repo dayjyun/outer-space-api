@@ -16,7 +16,7 @@ public class Astronomer {
    @Column(unique = true)
    private String username;
 
-   @Column(unique = true)
+   @Column(unique = true, nullable = false)
    private String email;
 
    @Column

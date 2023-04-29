@@ -1,9 +1,12 @@
 package kbarrios.dev.outerspace.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,18 +29,24 @@ public class SolarSystem {
    @Column
    private Long sizeComparedToEarth;
 
+   @Column
+   @Temporal(TemporalType.TIMESTAMP)
+   @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
+   private LocalDateTime createdAt;
+
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
    private List<Planet> planetList;
 
    public SolarSystem() {}
 
-   public SolarSystem(Long id, String name, Long ageInBillions, String type, Long sizeComparedToEarth) {
+   public SolarSystem(Long id, String name, Long ageInBillions, String type, Long sizeComparedToEarth, LocalDateTime createdAt) {
       this.id = id;
       this.name = name;
       this.ageInBillions = ageInBillions;
       this.type = type;
       this.sizeComparedToEarth = sizeComparedToEarth;
+      this.createdAt = createdAt;
    }
 
    public Long getId() {
@@ -86,6 +95,14 @@ public class SolarSystem {
 
    public void setPlanetList(List<Planet> planetList) {
       this.planetList = planetList;
+   }
+
+   public LocalDateTime getCreatedAt() {
+      return createdAt;
+   }
+
+   public void setCreatedAt(LocalDateTime createdAt) {
+      this.createdAt = createdAt;
    }
 
    @Override
