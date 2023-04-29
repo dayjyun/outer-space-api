@@ -36,7 +36,6 @@ public class SolarSystem {
    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH-mm-ss")
    private Timestamp createdAt;
 
-
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
    private List<Planet> planetList;
@@ -91,6 +90,14 @@ public class SolarSystem {
       this.sizeComparedToEarth = sizeComparedToEarth;
    }
 
+   public Timestamp getCreatedAt() {
+      return createdAt;
+   }
+
+   public void setCreatedAt(Timestamp createdAt) {
+      this.createdAt = createdAt;
+   }
+
    public List<Planet> getPlanetList() {
       return planetList;
    }
@@ -99,13 +106,6 @@ public class SolarSystem {
       this.planetList = planetList;
    }
 
-   public Timestamp getCreatedAt() {
-      return createdAt;
-   }
-
-   public void setCreatedAt(Timestamp createdAt) {
-      this.createdAt = createdAt;
-   }
 
    @Override
    public String toString() {

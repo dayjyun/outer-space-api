@@ -1,8 +1,11 @@
 package kbarrios.dev.outerspace.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="planets")
@@ -26,6 +29,11 @@ public class Planet {
 
    @Column
    private boolean habitable;
+
+   @Column
+   @CreationTimestamp
+   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH-mm-ss")
+   private Timestamp createdAt;
 
    @ManyToOne
    @JoinColumn(name = "solary_system_id", referencedColumnName = "id")
