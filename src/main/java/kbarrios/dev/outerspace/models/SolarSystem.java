@@ -99,6 +99,14 @@ public class SolarSystem {
       this.planetList = planetList;
    }
 
+   public Timestamp getCreatedAt() {
+      return createdAt;
+   }
+
+   public void setCreatedAt(Timestamp createdAt) {
+      this.createdAt = createdAt;
+   }
+
    @Override
    public String toString() {
       return "SolarSystem{" +
