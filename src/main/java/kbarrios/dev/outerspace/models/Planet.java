@@ -53,7 +53,6 @@ public class Planet {
       this.sizeComparedToEarth = sizeComparedToEarth;
       this.habitable = habitable;
       this.solarSystem = solarSystem;
-
    }
 
    public Long getId() {
@@ -129,6 +128,7 @@ public class Planet {
               ", lengthOfYear=" + lengthOfYear +
               ", sizeComparedToEarth=" + sizeComparedToEarth +
               ", habitable=" + habitable +
+              ", createdAt=" + createdAt +
               '}';
    }
 }
