@@ -1,10 +1,8 @@
 package kbarrios.dev.outerspace.controllers;
 
 import kbarrios.dev.outerspace.models.SolarSystem;
-import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
 import kbarrios.dev.outerspace.service.SolarSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

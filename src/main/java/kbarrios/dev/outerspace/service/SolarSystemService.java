@@ -5,16 +5,10 @@ import kbarrios.dev.outerspace.exceptions.NotFoundException;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BeanPropertyBindingResult;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 
