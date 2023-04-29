@@ -1,7 +1,6 @@
 package kbarrios.dev.outerspace.controllers;
 
 import kbarrios.dev.outerspace.models.Planet;
-import kbarrios.dev.outerspace.repositories.PlanetRepository;
 import kbarrios.dev.outerspace.service.PlanetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
