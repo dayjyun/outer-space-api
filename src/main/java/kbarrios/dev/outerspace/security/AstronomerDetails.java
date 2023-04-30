@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 public class AstronomerDetails implements UserDetails {
-   private Astronomer astronomer;
+   private final Astronomer astronomer;
 
    public AstronomerDetails(Astronomer astronomer) {
       this.astronomer = astronomer;
@@ -20,32 +20,32 @@ public class AstronomerDetails implements UserDetails {
 
    @Override
    public String getPassword() {
-      return null;
+      return astronomer.getPassword();
    }
 
    @Override
    public String getUsername() {
-      return null;
+      return astronomer.getUsername();
    }
 
    @Override
    public boolean isAccountNonExpired() {
-      return false;
+      return true;
    }
 
    @Override
    public boolean isAccountNonLocked() {
-      return false;
+      return true;
    }
 
    @Override
    public boolean isCredentialsNonExpired() {
-      return false;
+      return true;
    }
 
    @Override
    public boolean isEnabled() {
-      return false;
+      return true;
    }
 
    public Astronomer getAstronomer() {

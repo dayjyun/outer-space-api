@@ -6,7 +6,6 @@ import kbarrios.dev.outerspace.models.login.LoginRequest;
 import kbarrios.dev.outerspace.models.login.LoginResponse;
 import kbarrios.dev.outerspace.repositories.AstronomerRepository;
 import kbarrios.dev.outerspace.security.AstronomerDetails;
-import kbarrios.dev.outerspace.security.AstronomerDetailsService;
 import kbarrios.dev.outerspace.security.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -22,21 +21,21 @@ import org.springframework.stereotype.Service;
 public class AstronomerService {
    private final AstronomerRepository astronomerRepository;
    private final PasswordEncoder passwordEncoder;
-   private final JWTUtils jwtUtils;
-   private final AuthenticationManager authenticationManager;
-   private AstronomerDetailsService astronomerDetailsService;
+   private JWTUtils jwtUtils;
+   private AuthenticationManager authenticationManager;
+   private AstronomerDetails astronomerDetails;
 
    @Autowired
    public AstronomerService(AstronomerRepository astronomerRepository,
                             @Lazy PasswordEncoder passwordEncoder,
                             JWTUtils jwtUtils,
                             @Lazy AuthenticationManager authenticationManager,
-                            @Lazy AstronomerDetailsService astronomerDetailsService) {
+                            @Lazy AstronomerDetails astronomerDetails) {
       this.astronomerRepository = astronomerRepository;
       this.passwordEncoder = passwordEncoder;
       this.jwtUtils = jwtUtils;
       this.authenticationManager = authenticationManager;
-      this.astronomerDetailsService = astronomerDetailsService;
+      this.astronomerDetails = astronomerDetails;
    }
 
    public Astronomer createAstronomer(Astronomer astronomerObject) {
@@ -58,11 +57,11 @@ public class AstronomerService {
          Authentication authentication = authenticationManager
                  .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
          SecurityContextHolder.getContext().setAuthentication(authentication);
-          astronomerDetails = (AstronomerDetails) authentication.getPrincipal();
+         astronomerDetails = (AstronomerDetails) authentication.getPrincipal();
          final String JWT = jwtUtils.generateJwtToken(astronomerDetails);
          return ResponseEntity.ok(new LoginResponse(JWT));
       } catch (Exception e) {
          return ResponseEntity.ok(new LoginResponse("Error : user name or password is incorrect"));
-      }UsernamePasswordAuthenticationToken
+      }
    }
 }
