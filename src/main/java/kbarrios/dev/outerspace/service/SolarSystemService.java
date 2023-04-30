@@ -20,6 +20,10 @@ public class SolarSystemService {
    }
 
    public List<SolarSystem> getAllSolarSystems() {
+      List<SolarSystem> allSolarSystems = solarSystemRepository.findAll();
+      if(allSolarSystems.isEmpty()) {
+         throw new NotFoundException("No Solar Systems found. Is this a new universe?");
+      }
       return solarSystemRepository.findAll();
    }
 
