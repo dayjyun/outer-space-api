@@ -25,6 +25,13 @@ public class AstronomerService {
    private AuthenticationManager authenticationManager;
    private AstronomerDetails astronomerDetails;
 
+   public static Astronomer getLoggedInAstronomer() {
+      AstronomerDetails astronomerDetails = (AstronomerDetails) SecurityContextHolder.getContext()
+                                                                                     .getAuthentication()
+                                                                                     .getPrincipal();
+      return astronomerDetails.getAstronomer();
+   }
+
    @Autowired
    public AstronomerService(AstronomerRepository astronomerRepository,
                             @Lazy PasswordEncoder passwordEncoder,
@@ -39,7 +46,7 @@ public class AstronomerService {
    }
 
    public Astronomer createAstronomer(Astronomer astronomerObject) {
-      if(!astronomerRepository.existsAstronomerByEmail(astronomerObject.getEmail())) {
+      if (!astronomerRepository.existsAstronomerByEmail(astronomerObject.getEmail())) {
          astronomerObject.setPassword(passwordEncoder.encode(astronomerObject.getPassword()));
          return astronomerRepository.save(astronomerObject);
       } else {
@@ -52,11 +59,13 @@ public class AstronomerService {
    }
 
    public ResponseEntity<?> loginUser(LoginRequest loginRequest) {
-//      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword());
+//      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+//      loginRequest.getPassword());
       try {
          Authentication authentication = authenticationManager
                  .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-         SecurityContextHolder.getContext().setAuthentication(authentication);
+         SecurityContextHolder.getContext()
+                              .setAuthentication(authentication);
          astronomerDetails = (AstronomerDetails) authentication.getPrincipal();
          final String JWT = jwtUtils.generateJwtToken(astronomerDetails);
          return ResponseEntity.ok(new LoginResponse(JWT));
