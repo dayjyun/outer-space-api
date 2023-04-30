@@ -41,8 +41,7 @@ public class SolarSystemService {
 
    public SolarSystem createSolarSystem(SolarSystem solarSystemBody) {
       Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByNameAndAstronomerId(solarSystemBody.getName(),
-              AstronomerService.getLoggedInAstronomer()
-                               .getId());
+              AstronomerService.getLoggedInAstronomer().getId());
       if (solarSystem.isPresent()) {
          throw new AlreadyExistsException("Solar System with the name " + solarSystem.get().getName() + " already exists");
       } else {
@@ -56,8 +55,7 @@ public class SolarSystemService {
    }
 
    public SolarSystem updateSolarSystem(Long solarSystemId, SolarSystem solarSystemBody){
-      Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByIdAndAstronomerId(solarSystemId, AstronomerService.getLoggedInAstronomer()
-                                                                                                                                   .getId());
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByIdAndAstronomerId(solarSystemId, AstronomerService.getLoggedInAstronomer().getId());
       if(solarSystem.isPresent()) {
          if(solarSystem.get().getName().equals(solarSystemBody.getName())) {
             throw new AlreadyExistsException("Solar system with the name " +  solarSystem.get().getName() + " already exists");
@@ -75,10 +73,10 @@ public class SolarSystemService {
    }
 
    public Optional<SolarSystem> deleteSolarSystem(Long solarSystemId) {
-      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByIdAndAstronomerId(solarSystemId, AstronomerService.getLoggedInAstronomer().getId());
       if(solarSystem.isPresent()) {
-         solarSystemRepository.deleteById(solarSystemId);
-         return solarSystem;
+            solarSystemRepository.deleteById(solarSystemId);
+            return solarSystem;
       } else {
          throw new NotFoundException("I hate to say it, but it looks like the system you're searching for doesn't exist");
       }

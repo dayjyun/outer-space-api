@@ -8,11 +8,6 @@ import java.util.Optional;
 
 public interface SolarSystemRepository extends JpaRepository<SolarSystem, Long> {
    Optional<SolarSystem> findByName(String name);
-//   SolarSystem findSolarSystemById(Long solarSystemId);
-
-//   SolarSystem findSolarSystemByName(String solarSystemName);
-
-//   List<SolarSystem> getAllSolarSystems();
 
    Optional<SolarSystem> findSolarSystemByNameAndAstronomerId(String solarSystemName, Long astronomerId);
 
