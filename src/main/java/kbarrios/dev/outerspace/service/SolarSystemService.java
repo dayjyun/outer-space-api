@@ -2,9 +2,12 @@ package kbarrios.dev.outerspace.service;
 
 import kbarrios.dev.outerspace.exceptions.AlreadyExistsException;
 import kbarrios.dev.outerspace.exceptions.NotFoundException;
+import kbarrios.dev.outerspace.models.Astronomer;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
+import kbarrios.dev.outerspace.security.AstronomerDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,13 +40,17 @@ public class SolarSystemService {
    }
 
    public SolarSystem createSolarSystem(SolarSystem solarSystemBody) {
-      Optional<SolarSystem> solarSystem = solarSystemRepository.findByName(solarSystemBody.getName());
+//      Optional<SolarSystem> solarSystem = solarSystemRepository.findByName(solarSystemBody.getName());
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByNameAndAstronomerId(solarSystemBody.getName(),
+              AstronomerService.getLoggedInAstronomer()
+                               .getId());
       if (solarSystem.isPresent()) {
          throw new AlreadyExistsException("Solar System already exists");
       } else {
          if (solarSystemBody.getName().isEmpty() || solarSystemBody.getName() == null) {
              throw new NotFoundException("Solar System needs a name");
          } else {
+            solarSystemBody.setAstronomer(AstronomerService.getLoggedInAstronomer());
             return solarSystemRepository.save(solarSystemBody);
          }
       }

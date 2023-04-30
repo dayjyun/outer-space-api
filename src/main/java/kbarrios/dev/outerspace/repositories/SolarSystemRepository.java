@@ -13,4 +13,6 @@ public interface SolarSystemRepository extends JpaRepository<SolarSystem, Long> 
 //   SolarSystem findSolarSystemByName(String solarSystemName);
 
 //   List<SolarSystem> getAllSolarSystems();
+
+   Optional<SolarSystem> findSolarSystemByNameAndAstronomerId(String solarSystemName, Long astronomerId);
 }
