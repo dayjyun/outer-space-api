@@ -40,7 +40,6 @@ public class SolarSystemService {
    }
 
    public SolarSystem createSolarSystem(SolarSystem solarSystemBody) {
-//      Optional<SolarSystem> solarSystem = solarSystemRepository.findByName(solarSystemBody.getName());
       Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByNameAndAstronomerId(solarSystemBody.getName(),
               AstronomerService.getLoggedInAstronomer()
                                .getId());
@@ -57,7 +56,9 @@ public class SolarSystemService {
    }
 
    public SolarSystem updateSolarSystem(Long solarSystemId, SolarSystem solarSystemBody){
-      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
+//      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
+      Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByIdAndAstronomerId(solarSystemId, AstronomerService.getLoggedInAstronomer()
+                                                                                                                                   .getId());
       if(solarSystem.isPresent()) {
          if(solarSystem.get().getName().equals(solarSystemBody.getName())) {
             throw new AlreadyExistsException("Solar system with the name " +  solarSystem.get().getName() + " already exists");
