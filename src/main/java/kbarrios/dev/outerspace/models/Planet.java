@@ -126,6 +126,14 @@ public class Planet {
       this.createdAt = createdAt;
    }
 
+   public Astronomer getAstronomer() {
+      return astronomer;
+   }
+
+   public void setAstronomer(Astronomer astronomer) {
+      this.astronomer = astronomer;
+   }
+
    @Override
    public String toString() {
       return "Planet{" +
