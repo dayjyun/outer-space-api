@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -39,9 +40,15 @@ public class SecurityConfiguration {
 
    @Bean
    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-      http.authorizeRequests().antMatchers(
-                  "/auth/astronomers/register", "/auth/astronomers/login"
-          ).permitAll()
+      http.authorizeRequests()
+          .antMatchers(HttpMethod.POST,
+                  "/auth/astronomers/register",
+                  "/auth/astronomers/login").permitAll()
+          .antMatchers(HttpMethod.GET,
+                  "/api/solar-systems",
+                  "/api/solar-systems/{solarSystemId}",
+                  "/api/planets",
+                  "/api/planets/{planetId}").permitAll()
           .anyRequest().authenticated()
           .and().sessionManagement()
           .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

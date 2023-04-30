@@ -1,0 +1,22 @@
+[
+  {
+    "name": "test8",
+    "type": "type",
+    "ageInBillions": 1,
+    "sizeComparedToEarth": 343
+  },
+  {
+    "name": "name",
+    "username": "username",
+    "email": "email@email.com",
+    "password": "password"
+  },
+  {
+    "email": "email@email.com",
+    "password": "password"
+  },
+  {
+    "name": "Vens",
+    "distanceFromSun": 1
+  }
+]
