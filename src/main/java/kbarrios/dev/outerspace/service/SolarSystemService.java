@@ -44,7 +44,7 @@ public class SolarSystemService {
               AstronomerService.getLoggedInAstronomer()
                                .getId());
       if (solarSystem.isPresent()) {
-         throw new AlreadyExistsException("Solar System already exists");
+         throw new AlreadyExistsException("Solar System with the name " + solarSystem.get().getName() + " already exists");
       } else {
          if (solarSystemBody.getName().isEmpty() || solarSystemBody.getName() == null) {
              throw new NotFoundException("Solar System needs a name");
@@ -56,7 +56,6 @@ public class SolarSystemService {
    }
 
    public SolarSystem updateSolarSystem(Long solarSystemId, SolarSystem solarSystemBody){
-//      Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
       Optional<SolarSystem> solarSystem = solarSystemRepository.findSolarSystemByIdAndAstronomerId(solarSystemId, AstronomerService.getLoggedInAstronomer()
                                                                                                                                    .getId());
       if(solarSystem.isPresent()) {
