@@ -41,12 +41,13 @@ public class SolarSystem {
    // Solar System belongs to many Planets
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
+   @JsonIgnore
    private List<Planet> planetList;
 
    // Many Solar Systems belong to one Astronomer
    @ManyToOne
    @JoinColumn(name = "astronomer_id")
-//   @JsonIgnore
+   @JsonIgnore
    private Astronomer astronomer;
 
    public SolarSystem() {}
@@ -122,19 +123,6 @@ public class SolarSystem {
    public void setAstronomer(Astronomer astronomer) {
       this.astronomer = astronomer;
    }
-
-//   @Override
-//   public String toString() {
-//      return "SolarSystem{" +
-//              "id=" + id +
-//              ", name='" + name + '\'' +
-//              ", ageInBillions=" + ageInBillions +
-//              ", type='" + type + '\'' +
-//              ", sizeComparedToEarth=" + sizeComparedToEarth +
-//              ", createdAt=" + createdAt +
-//              ", planetList=" + planetList +
-//              '}';
-//   }
 
    @Override
    public String toString() {
