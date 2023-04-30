@@ -23,9 +23,8 @@ public class PlanetService {
       List<Planet> allPlanets = planetRepository.findAll();
       if(allPlanets.isEmpty()) {
          throw new NotFoundException("No planets found");
-      } else {
-         return allPlanets;
       }
+      return allPlanets;
    }
 
    public Optional<Planet> getPlanetById(Long planetId) {
