@@ -49,4 +49,23 @@ public class PlanetService {
          }
       }
    }
+
+   public Optional<Planet> updatePlanet(Long planetId, Planet planetBody) {
+      Optional<Planet> planet = planetRepository.findById(planetId);
+      if(planet.isPresent()) {
+         if(planetBody.getName().equals(planet.get().getName())) {
+            throw new AlreadyExistsException("Planet with that name already exists");
+         } else {
+            Planet updatedPlanet = planetRepository.findById(planetId).get();
+            updatedPlanet.setName(planetBody.getName());
+            updatedPlanet.setDistanceFromSun(planetBody.getDistanceFromSun());
+            updatedPlanet.setLengthOfYear(planetBody.getLengthOfYear());
+            updatedPlanet.setSizeComparedToEarth(planetBody.getSizeComparedToEarth());
+            updatedPlanet.setHabitable(planetBody.isHabitable());
+            return Optional.of(planetRepository.save(updatedPlanet));
+         }
+      } else {
+         throw new NotFoundException("Planet with ID " + planetId + " is not found");
+      }
+   }
 }

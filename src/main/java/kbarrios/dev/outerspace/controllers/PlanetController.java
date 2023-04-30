@@ -28,13 +28,15 @@ public class PlanetController {
       return planetService.getPlanetById(planetId);
    }
 
-   // POST /api/planets
    @PostMapping(path = "")
    public Optional<Planet> createPlanet(@RequestBody Planet planetBody) {
       return planetService.createPlanet(planetBody);
    }
 
-   // PUT /api/planets/{planetId}
+   @PutMapping(path = "/{planetId}")
+   public Optional<Planet> updatePlanet(@PathVariable Long planetId, @RequestBody Planet planetBody) {
+      return planetService.updatePlanet(planetId, planetBody);
+   }
 
    // DELETE /api/planets/{planetId}
 }
