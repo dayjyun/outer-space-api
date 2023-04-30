@@ -5,6 +5,7 @@ import kbarrios.dev.outerspace.service.PlanetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,12 +25,12 @@ public class PlanetController {
    }
 
    @GetMapping(path="/{planetId}")
-   public Optional<Planet> getPlanetById(@PathVariable Long planetId) {
+   public Optional<Planet> getPlanetById(@PathVariable @Valid Long planetId) {
       return planetService.getPlanetById(planetId);
    }
 
    @PostMapping(path = "")
-   public Optional<Planet> createPlanet(@RequestBody Planet planetBody) {
+   public Optional<Planet> createPlanet(@RequestBody @Valid Planet planetBody) {
       return planetService.createPlanet(planetBody);
    }
 
