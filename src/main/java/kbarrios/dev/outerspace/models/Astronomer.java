@@ -1,5 +1,7 @@
 package kbarrios.dev.outerspace.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,7 @@ public class Astronomer {
    private String email;
 
    @Column
+   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
    private String password;
 
    public Astronomer() {}
