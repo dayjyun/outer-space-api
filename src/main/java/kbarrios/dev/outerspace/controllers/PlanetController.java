@@ -23,9 +23,10 @@ public class PlanetController {
       return planetService.getAllPlanets();
    }
 
-   // GET /api/planets/{planetId}
-//   @GetMapping(path="/{planetId}")
-//   public Optional<Planet> getPlanet
+   @GetMapping(path="/{planetId}")
+   public Optional<Planet> getPlanetById(@PathVariable Long planetId) {
+      return planetService.getPlanetById(planetId);
+   }
 
    // POST /api/planets
    @PostMapping(path = "")

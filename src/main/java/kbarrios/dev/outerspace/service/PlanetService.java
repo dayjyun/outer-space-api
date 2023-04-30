@@ -28,6 +28,15 @@ public class PlanetService {
       }
    }
 
+   public Optional<Planet> getPlanetById(Long planetId) {
+      Optional<Planet> planet = planetRepository.findById(planetId);
+      if(planet.isPresent()) {
+         return planet;
+      } else {
+         throw new NotFoundException("Planet with ID " + planetId + " is not found");
+      }
+   }
+
    public Optional<Planet> createPlanet(Planet planetBody) {
       Optional<Planet> planet = planetRepository.findPlanetByName(planetBody.getName());
       if(planet.isPresent()) {
