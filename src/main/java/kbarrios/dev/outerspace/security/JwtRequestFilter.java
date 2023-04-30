@@ -14,9 +14,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
+   Logger logger = Logger.getLogger(JwtRequestFilter.class.getName());
+
    @Autowired
    private AstronomerDetailsService astronomerDetailsService;
 
@@ -45,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authentication);
          }
       } catch (Exception e) {
-         logger.error("Cannot set user authentication: ", e);
+         logger.info("Cannot set user authentication: ");
       }
       filterChain.doFilter(request, response);
    }
