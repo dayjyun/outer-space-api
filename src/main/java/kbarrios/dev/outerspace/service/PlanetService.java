@@ -36,7 +36,7 @@ public class PlanetService {
       }
    }
 
-   public Optional<Planet> createPlanet(Planet planetBody) {
+   public Planet createPlanet(Planet planetBody) {
       Optional<Planet> planet = planetRepository.findPlanetByName(planetBody.getName());
       if(planet.isPresent()) {
          throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
@@ -44,12 +44,12 @@ public class PlanetService {
          if(planetBody.getName().isEmpty() || planetBody.getName() == null) {
             throw new NotFoundException("Planet enter a name for your planet");
          } else {
-            return Optional.of(planetRepository.save(planetBody));
+            return planetRepository.save(planetBody);
          }
       }
    }
 
-   public Optional<Planet> updatePlanet(Long planetId, Planet planetBody) {
+   public Planet updatePlanet(Long planetId, Planet planetBody) {
       Optional<Planet> planet = planetRepository.findById(planetId);
       if(planet.isPresent()) {
          if(planetBody.getName().equals(planet.get().getName())) {
@@ -61,7 +61,7 @@ public class PlanetService {
             updatedPlanet.setLengthOfYear(planetBody.getLengthOfYear());
             updatedPlanet.setSizeComparedToEarth(planetBody.getSizeComparedToEarth());
             updatedPlanet.setHabitable(planetBody.isHabitable());
-            return Optional.of(planetRepository.save(updatedPlanet));
+            return planetRepository.save(updatedPlanet);
          }
       } else {
          throw new NotFoundException("Planet with ID " + planetId + " is not found");

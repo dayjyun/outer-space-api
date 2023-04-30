@@ -136,6 +136,7 @@ public class Planet {
               ", sizeComparedToEarth=" + sizeComparedToEarth +
               ", habitable=" + habitable +
               ", createdAt=" + createdAt +
+              ", solar_systemId=" + solarSystem +
               '}';
    }
 }
