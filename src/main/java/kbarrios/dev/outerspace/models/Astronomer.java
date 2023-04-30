@@ -1,8 +1,11 @@
 package kbarrios.dev.outerspace.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="astronomers")
@@ -24,6 +27,16 @@ public class Astronomer {
    @Column
    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
    private String password;
+
+   // Astronomer belongs to many Planets
+   @OneToMany(mappedBy = "astronomer")
+   @LazyCollection(LazyCollectionOption.FALSE)
+   private List<Planet> planetList;
+
+   // Astronomer belongs to many Solar Systems
+   @OneToMany(mappedBy = "astronomer")
+   @LazyCollection(LazyCollectionOption.FALSE)
+   private List<SolarSystem> solarSystemsList;
 
    public Astronomer() {}
 

@@ -1,6 +1,7 @@
 package kbarrios.dev.outerspace.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -36,9 +37,16 @@ public class SolarSystem {
    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH-mm-ss")
    private Timestamp createdAt;
 
+   // Solar System belongs to many Planets
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
    private List<Planet> planetList;
+
+   // Many Solar Systems belong to one Astronomer
+   @ManyToOne
+   @JoinColumn(name = "astronomer_id")
+   @JsonIgnore
+   private Astronomer astronomer;
 
    public SolarSystem() {}
 

@@ -37,10 +37,17 @@ public class Planet {
    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH-mm-ss")
    private Timestamp createdAt;
 
+   // Many Planets belong to one Solar System
    @ManyToOne
    @JoinColumn(name = "solary_system_id", referencedColumnName = "id")
    @JsonIgnore
    private SolarSystem solarSystem;
+
+   // Many Planets belong to one Astronomer
+   @ManyToOne
+   @JoinColumn(name = "astronomer_id")
+   @JsonIgnore
+   private Astronomer astronomer;
 
    public Planet() {}
 
