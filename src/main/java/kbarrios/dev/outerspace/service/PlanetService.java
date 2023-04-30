@@ -22,7 +22,7 @@ public class PlanetService {
    public List<Planet> getAllPlanets() {
       List<Planet> allPlanets = planetRepository.findAll();
       if(allPlanets.isEmpty()) {
-         throw new NotFoundException("No planets found. Weird.");
+         throw new NotFoundException("No planets found");
       } else {
          return allPlanets;
       }
