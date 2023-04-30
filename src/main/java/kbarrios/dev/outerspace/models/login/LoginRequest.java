@@ -1,4 +1,4 @@
-package kbarrios.dev.outerspace.models;
+package kbarrios.dev.outerspace.models.login;
 
 public class LoginRequest {
    private String email;
