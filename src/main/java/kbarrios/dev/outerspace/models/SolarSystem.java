@@ -114,6 +114,14 @@ public class SolarSystem {
       this.planetList = planetList;
    }
 
+   public Astronomer getAstronomer() {
+      return astronomer;
+   }
+
+   public void setAstronomer(Astronomer astronomer) {
+      this.astronomer = astronomer;
+   }
+
    @Override
    public String toString() {
       return "SolarSystem{" +
