@@ -54,7 +54,7 @@ public class PlanetService {
       Optional<Planet> planet = planetRepository.findById(planetId);
       if(planet.isPresent()) {
          if(planetBody.getName().equals(planet.get().getName())) {
-            throw new AlreadyExistsException("Planet with that name already exists");
+            throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
          } else {
             Planet updatedPlanet = planetRepository.findById(planetId).get();
             updatedPlanet.setName(planetBody.getName());
