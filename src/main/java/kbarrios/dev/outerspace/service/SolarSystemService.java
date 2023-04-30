@@ -53,7 +53,7 @@ public class SolarSystemService {
       Optional<SolarSystem> solarSystem = solarSystemRepository.findById(solarSystemId);
       if(solarSystem.isPresent()) {
          if(solarSystem.get().getName().equals(solarSystemBody.getName())) {
-            throw new AlreadyExistsException("Solar system already exists");
+            throw new AlreadyExistsException("Solar system with the name " +  solarSystem.get().getName() + " already exists");
          } else {
             SolarSystem updatedSolarSystem = solarSystemRepository.findById(solarSystemId).get();
             updatedSolarSystem.setName(solarSystemBody.getName());
