@@ -7,4 +7,6 @@ public interface AstronomerRepository extends JpaRepository<Astronomer, Long> {
    Astronomer findAstronomerById(Long astronomerId);
 
    Astronomer findAstronomerByEmail(String email);
+
+   boolean existsAstronomerByEmail(String email);
 }
