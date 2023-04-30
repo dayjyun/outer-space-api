@@ -52,11 +52,11 @@ public class PlanetService {
    public Planet updatePlanet(Long planetId, Planet planetBody) {
       Optional<Planet> planet = planetRepository.findById(planetId);
       if(planet.isPresent()) {
-         if(planetBody.getName().equals(planet.get().getName())) {
+         if(planet.get().getName().equals(planetBody.getName())) {
             throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
          } else {
             Planet updatedPlanet = planetRepository.findById(planetId).get();
-            updatedPlanet.setName(planetBody.getName());
+//            updatedPlanet.setName(planetBody.getName());
             updatedPlanet.setDistanceFromSun(planetBody.getDistanceFromSun());
             updatedPlanet.setLengthOfYear(planetBody.getLengthOfYear());
             updatedPlanet.setSizeComparedToEarth(planetBody.getSizeComparedToEarth());
