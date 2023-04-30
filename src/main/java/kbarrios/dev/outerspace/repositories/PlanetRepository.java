@@ -9,4 +9,6 @@ public interface PlanetRepository extends JpaRepository<Planet, Long> {
    Optional<Planet> findPlanetByName(String planetName);
 
    Optional<Planet> findPlanetByNameAndAstronomerId(String planetName, Long astronomerId);
+
+   Optional<Planet> findPlanetByIdAndAstronomerId(Long planetId, Long astronomerId);
 }

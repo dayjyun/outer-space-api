@@ -51,7 +51,7 @@ public class PlanetService {
    }
 
    public Planet updatePlanet(Long planetId, Planet planetBody) {
-      Optional<Planet> planet = planetRepository.findById(planetId);
+      Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
       if(planet.isPresent()) {
          if(planet.get().getName().equals(planetBody.getName())) {
             throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
@@ -70,7 +70,7 @@ public class PlanetService {
    }
 
    public Optional<Planet> deletePlanet(Long planetId) {
-      Optional<Planet> planet = planetRepository.findById(planetId);
+      Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
       if(planet.isPresent()) {
          planetRepository.deleteById(planetId);
          return planet;
