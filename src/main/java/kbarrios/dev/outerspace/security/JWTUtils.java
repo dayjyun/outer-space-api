@@ -30,12 +30,10 @@ public class JWTUtils {
                  .compact();
    }
 
-   // For every single request
    public String getUserNameFromJwtToken(String token) {
       return Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJws(token).getBody().getSubject();
    }
 
-   // For every single request
    public boolean validateJwtToken(String authToken) {
       try {
          Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);

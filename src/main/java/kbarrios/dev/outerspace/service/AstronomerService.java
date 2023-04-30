@@ -52,7 +52,7 @@ public class AstronomerService {
    }
 
    public ResponseEntity<?> loginUser(LoginRequest loginRequest) {
-      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword());
+//      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword());
       try {
          Authentication authentication = authenticationManager
                  .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
