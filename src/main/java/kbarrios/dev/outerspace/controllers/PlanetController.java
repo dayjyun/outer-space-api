@@ -38,5 +38,8 @@ public class PlanetController {
       return planetService.updatePlanet(planetId, planetBody);
    }
 
-   // DELETE /api/planets/{planetId}
+   @DeleteMapping(path = "/{planetId}")
+   public Optional<Planet> deletePlanet(@PathVariable Long planetId) {
+      return planetService.deletePlanet(planetId);
+   }
 }

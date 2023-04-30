@@ -68,4 +68,14 @@ public class PlanetService {
          throw new NotFoundException("Planet with ID " + planetId + " is not found");
       }
    }
+
+   public Optional<Planet> deletePlanet(Long planetId) {
+      Optional<Planet> planet = planetRepository.findById(planetId);
+      if(planet.isPresent()) {
+         planetRepository.deleteById(planetId);
+         return planet;
+      } else {
+         throw new NotFoundException("Planet with ID " + planetId + " is not found");
+      }
+   }
 }
