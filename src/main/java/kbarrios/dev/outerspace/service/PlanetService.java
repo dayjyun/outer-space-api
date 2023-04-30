@@ -40,10 +40,10 @@ public class PlanetService {
    public Optional<Planet> createPlanet(Planet planetBody) {
       Optional<Planet> planet = planetRepository.findPlanetByName(planetBody.getName());
       if(planet.isPresent()) {
-         throw new AlreadyExistsException("Planet with that name already exists");
+         throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
       } else {
          if(planetBody.getName().isEmpty() || planetBody.getName() == null) {
-            throw new NotFoundException("Planet needs a name");
+            throw new NotFoundException("Planet enter a name for your planet");
          } else {
             return Optional.of(planetRepository.save(planetBody));
          }
