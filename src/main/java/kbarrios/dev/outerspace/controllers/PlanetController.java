@@ -30,12 +30,12 @@ public class PlanetController {
    }
 
    @PostMapping(path = "")
-   public Optional<Planet> createPlanet(@RequestBody @Valid Planet planetBody) {
+   public Planet createPlanet(@RequestBody @Valid Planet planetBody) {
       return planetService.createPlanet(planetBody);
    }
 
    @PutMapping(path = "/{planetId}")
-   public Optional<Planet> updatePlanet(@PathVariable Long planetId, @RequestBody Planet planetBody) {
+   public Planet updatePlanet(@PathVariable Long planetId, @RequestBody Planet planetBody) {
       return planetService.updatePlanet(planetId, planetBody);
    }
 
