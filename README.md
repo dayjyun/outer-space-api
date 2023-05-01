@@ -75,7 +75,7 @@ Also, if you're lucky enough to run into a few Client error responses, you may n
 <img width="400" alt="Jocasta Nu explaining the system doesn't exist" src="src\images\obi-wan-SWEPII_impossible.gif">
 
 ## Hurdles
-One of the major issues during development is trying to implent features not learned in class. I had created custom validators to check whether an email entered was not a valid email, or if a name field was missing or already used. However, over time the functionality of the validators prevented endpoints from returning successful responses so I had no choice but to remove them.
+One of the major issues during development is trying to implent features not learned in class. I had created custom validators to check whether an email entered was not a valid email, or if a name field was missing or already used. However, over time the functionality of the validators prevented endpoints from returning successful responses so I had no choice but to remove them. Those issues will be resolved in the near future.
 
 ## Future
 Much like in an ever-expanding universe, there's also a never-ending expansion in code.
