@@ -19,6 +19,12 @@ public class PlanetService {
       this.planetRepository = planetRepository;
    }
 
+   /**
+    * Returns a list of all planet records in the database.
+    * If the list is empty, a NotFoundException is thrown.
+    * @return a list of all planets
+    * throws NotFoundException: No planets found
+    */
    public List<Planet> getAllPlanets() {
       List<Planet> allPlanets = planetRepository.findAll();
       if(allPlanets.isEmpty()) {
@@ -26,6 +32,14 @@ public class PlanetService {
       }
       return allPlanets;
    }
+
+   /**
+    * Searches through the database and returns an Optional of the planet record with the specified ID
+    * If the planet is not found with the specified ID, a NotFoundException is thrown.
+    * @param planetId
+    * @return Planet optional containing details about the planet record
+    * throws NotFoundException: Planet with ID planetId is not found
+    */
 
    public Optional<Planet> getPlanetById(Long planetId) {
       Optional<Planet> planet = planetRepository.findById(planetId);
@@ -35,6 +49,18 @@ public class PlanetService {
          throw new NotFoundException("Planet with ID " + planetId + " is not found");
       }
    }
+
+   /**
+    * Creates a new planet record with the planet's data saved into the database
+    * An Optional is used to check for a logged-in user
+    * THen it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
+    * If the check for the name passes, it will complete another check to make sure the Astronomer enters a name. If no name is provided,
+    * it will throw a NotFoundException
+    * @param planetBody
+    * @return Newly created Planet object
+    * throws AlreadyExistException: Your new Planet needs a name
+    * throws NotFoundException: Your new Planet needs a name
+    */
 
    public Planet createPlanet(Planet planetBody) {
       Optional<Planet> planet = planetRepository.findPlanetByNameAndAstronomerId(planetBody.getName(), AstronomerService.getLoggedInAstronomer().getId());
@@ -49,6 +75,19 @@ public class PlanetService {
          }
       }
    }
+
+   /**
+    * Updates an existing Planet record by searching the given Planet ID.
+    * Throws a NotFoundException if the ID given is not found
+    * If the planet is not found with the specified ID, a NotFoundException is thrown.
+    * THen it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
+    * If the check for the name passes, it will complete another check to make sure the Astronomer enters a name
+    * @param planetId
+    * @param planetBody
+    * @return Updated Planet object
+    * throws NotFoundException: Planet with ID planetId is not found
+    * throws AlreadyExistsException: Plnaet with the name planet.getName already exists
+    */
 
    public Planet updatePlanet(Long planetId, Planet planetBody) {
       Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
@@ -68,6 +107,14 @@ public class PlanetService {
          throw new NotFoundException("Planet with ID " + planetId + " is not found");
       }
    }
+
+   /**
+    * Removes a planet from the database by searching through the given Planet ID
+    * If the Planet with the given ID is not found, a NotFoundException is thrown
+    * @param planetId
+    * @return Details of deleted Planet
+    * throws NotFoundException: Planet with ID planetID is not found
+    */
 
    public Optional<Planet> deletePlanet(Long planetId) {
       Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
