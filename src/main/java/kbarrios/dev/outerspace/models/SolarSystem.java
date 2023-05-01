@@ -41,7 +41,7 @@ public class SolarSystem {
    // Solar System belongs to many Planets
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
-   @JsonIgnore
+//   @JsonIgnore
    private List<Planet> planetList;
 
    // Many Solar Systems belong to one Astronomer
