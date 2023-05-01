@@ -5,6 +5,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,7 @@ public class Astronomer {
    private String username;
 
    @Column(unique = true, nullable = false)
+   @Email(message = "Please provide a valid email")
    private String email;
 
    @Column

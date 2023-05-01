@@ -2,6 +2,7 @@ package kbarrios.dev.outerspace.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import kbarrios.dev.outerspace.service.AstronomerService;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -40,6 +41,7 @@ public class SolarSystem {
    // Solar System belongs to many Planets
    @OneToMany(mappedBy = "solarSystem", orphanRemoval = true)
    @LazyCollection(LazyCollectionOption.FALSE)
+//   @JsonIgnore
    private List<Planet> planetList;
 
    // Many Solar Systems belong to one Astronomer
@@ -50,7 +52,7 @@ public class SolarSystem {
 
    public SolarSystem() {}
 
-   public SolarSystem(Long id, String name, Long ageInBillions, String type, Long sizeComparedToEarth ) {
+   public SolarSystem(Long id, String name, Long ageInBillions, String type, Long sizeComparedToEarth) {
       this.id = id;
       this.name = name;
       this.ageInBillions = ageInBillions;
@@ -131,7 +133,7 @@ public class SolarSystem {
               ", type='" + type + '\'' +
               ", sizeComparedToEarth=" + sizeComparedToEarth +
               ", createdAt=" + createdAt +
-              ", planetList=" + planetList +
+              ", astronomer=" + this.astronomer +
               '}';
    }
 }

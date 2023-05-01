@@ -1,5 +1,6 @@
 package kbarrios.dev.outerspace.controllers;
 
+import kbarrios.dev.outerspace.models.Planet;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.service.SolarSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,11 @@ public class SolarSystemController {
    @PostMapping(path="")
    public SolarSystem createSolarSystem(@RequestBody @Valid SolarSystem solarSystemBody) {
       return solarSystemService.createSolarSystem(solarSystemBody);
+   }
+
+   @PostMapping(path="/{solarSystemId}/planets")
+   public Planet createPlanetForSolarSystem(@PathVariable Long solarSystemId, @RequestBody Planet planetBody) {
+      return solarSystemService.createPlanetForSolarSystem(solarSystemId, planetBody);
    }
 
    @PutMapping(path = "/{solarSystemId}")

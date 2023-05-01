@@ -37,20 +37,21 @@ public class PlanetService {
    }
 
    public Planet createPlanet(Planet planetBody) {
-      Optional<Planet> planet = planetRepository.findPlanetByName(planetBody.getName());
+      Optional<Planet> planet = planetRepository.findPlanetByNameAndAstronomerId(planetBody.getName(), AstronomerService.getLoggedInAstronomer().getId());
       if(planet.isPresent()) {
          throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
       } else {
          if(planetBody.getName().isEmpty() || planetBody.getName() == null) {
-            throw new NotFoundException("Planet enter a name for your planet");
+            throw new NotFoundException("Your new Planet needs a name");
          } else {
+            planetBody.setAstronomer(AstronomerService.getLoggedInAstronomer());
             return planetRepository.save(planetBody);
          }
       }
    }
 
    public Planet updatePlanet(Long planetId, Planet planetBody) {
-      Optional<Planet> planet = planetRepository.findById(planetId);
+      Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
       if(planet.isPresent()) {
          if(planet.get().getName().equals(planetBody.getName())) {
             throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
@@ -69,7 +70,7 @@ public class PlanetService {
    }
 
    public Optional<Planet> deletePlanet(Long planetId) {
-      Optional<Planet> planet = planetRepository.findById(planetId);
+      Optional<Planet> planet = planetRepository.findPlanetByIdAndAstronomerId(planetId, AstronomerService.getLoggedInAstronomer().getId());
       if(planet.isPresent()) {
          planetRepository.deleteById(planetId);
          return planet;
