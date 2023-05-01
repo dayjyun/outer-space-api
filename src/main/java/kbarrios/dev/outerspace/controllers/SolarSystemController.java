@@ -2,7 +2,6 @@ package kbarrios.dev.outerspace.controllers;
 
 import kbarrios.dev.outerspace.models.Planet;
 import kbarrios.dev.outerspace.models.SolarSystem;
-import kbarrios.dev.outerspace.service.PlanetService;
 import kbarrios.dev.outerspace.service.SolarSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +14,10 @@ import java.util.Optional;
 @RequestMapping(path = "/api/solar-systems")
 public class SolarSystemController {
    private SolarSystemService solarSystemService;
-   private PlanetService planetService;
 
    @Autowired
    public void setSolarSystemService(SolarSystemService solarSystemService) {
       this.solarSystemService = solarSystemService;
-   }
-
-   @Autowired
-   public void setPlanetService(PlanetService planetService) {
-      this.planetService = planetService;
    }
 
    @GetMapping(path = "")
