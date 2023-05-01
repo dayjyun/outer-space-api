@@ -17,9 +17,7 @@ public class JWTUtils {
 
    @Value("${jwt-expiration-ms}")
    private int jwtExpirationMs;
-
-
-   // One time!
+   
    public String generateJwtToken(AstronomerDetails astronomerDetails) {
       return Jwts.builder()
                  .setSubject((astronomerDetails.getUsername()))
