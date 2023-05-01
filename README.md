@@ -1,6 +1,9 @@
-# outer-space-api
+# Outer Space API
 
-## Dependencies
+<details>
+
+<summary>List of Dependencies Used</section>
+
 - [Spring Boot Starter](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter)
 - [Spring Boot Starter Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 - [Spring Boot Starter Web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
@@ -11,3 +14,5 @@
 - [JJWT :: API](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api)
 - [JJWT :: Impl](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl)
 - [JJWT :: Extensions :: Jackson](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson)
+
+</details>
