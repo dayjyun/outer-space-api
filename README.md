@@ -3,8 +3,8 @@
 Let's have some fun by creating your own universee! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
 
 ## Get Started
-The environment is set up and ready to use! Simply create a database named **outerSpace** in the **pgAdmin** app, and run the <a href="#endpoints">endpoints</a> using **Postman**. 
-The environment is set to the **dev** profile by default, which is set up in `applicatoin-dev.properties`, and runniing on port **9092**. 
+The environment is set up and ready to use! Simply create a database named **outerSpace** in the **pgAdmin** app, and run the <a href="#endpoints">endpoints</a> using **Postman**.
+The environment is set to the **dev** profile by default, which is set up in `applicatoin-dev.properties`, and runniing on port **9092**.
 Just watch out. Some of these endpoints require an authorized user! That's where the magic of JWT authentication comes into play.
 
 ## Technologies Used
@@ -66,12 +66,16 @@ When it comes to coding, I want to fast foward to the middle of the project wher
 
 Here is a [snapshot of the diagram](https://dbdiagram.io/d/644ad886dca9fb07c42b4c62) which illustrates the relationships for each mdoel.
 
-<img width="" alt="outer space api database diagram" src="">
+<img width="500" alt="outer space api database diagram" src="src\images\outer-space-api_diagram.png">
 
 Also, if you're lucky enough to run into a few Client error responses, you may notice a few of the messages returned may be a little familiar quoted from a movie from *long time ago in a galaxy far, far aaway...*
 
+<img width="400" alt="Jocasta Nu explaining the system doesn't exist" src="src\images\Jocasta-Nu_SWEPII_I_hate_to_say_but.gif">
+
+<img width="400" alt="Jocasta Nu explaining the system doesn't exist" src="src\images\obi-wan-SWEPII_impossible.gif">
+
 ## Hurdles
-One of the major issues during development is trying to implent features not learned in class. I had created custom validators to check whether an email entered was not a valid email, or if a name field was missing or already used. However, over time the functionality of the validators prevented endpoints from returning successful responses so I had no choice but to remove them. 
+One of the major issues during development is trying to implent features not learned in class. I had created custom validators to check whether an email entered was not a valid email, or if a name field was missing or already used. However, over time the functionality of the validators prevented endpoints from returning successful responses so I had no choice but to remove them.
 
 ## Future
 Much like in an ever-expanding universe, there's also a never-ending expansion in code.
