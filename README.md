@@ -1,8 +1,21 @@
 # Outer Space API
 
+Let's have some fun by creating your own universee! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
+
+## Technologies Used
+- Java
+- IntelliJ IDEA
+- Spring Boot
+- PostgreSQL
+- [Maven](https://mvnrepository.com/)
+- GitHub Branching
+- GitHub Stories
+- GitHub KanBan Board
+- [dbdiagram.io](https://dbdiagram.io/home)
+
 <details>
 
-<summary>List of Dependencies Used</section>
+<summary>List of Dependencies Used</summary>
 
 - [Spring Boot Starter](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter)
 - [Spring Boot Starter Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
