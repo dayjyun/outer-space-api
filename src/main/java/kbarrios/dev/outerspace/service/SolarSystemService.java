@@ -134,7 +134,6 @@ public class SolarSystemService {
             throw new AlreadyExistsException("Solar system with the name " +  solarSystem.get().getName() + " already exists");
          } else {
             SolarSystem updatedSolarSystem = solarSystemRepository.findById(solarSystemId).get();
-//            updatedSolarSystem.setName(solarSystemBody.getName());
             updatedSolarSystem.setAgeInBillions(solarSystemBody.getAgeInBillions());
             updatedSolarSystem.setType(solarSystemBody.getType());
             updatedSolarSystem.setSizeComparedToEarth(solarSystemBody.getSizeComparedToEarth());

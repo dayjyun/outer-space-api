@@ -97,7 +97,6 @@ public class PlanetService {
             throw new AlreadyExistsException("Planet with the name " + planet.get().getName()  + " already exists");
          } else {
             Planet updatedPlanet = planetRepository.findById(planetId).get();
-//            updatedPlanet.setName(planetBody.getName());
             updatedPlanet.setDistanceFromSun(planetBody.getDistanceFromSun());
             updatedPlanet.setLengthOfYear(planetBody.getLengthOfYear());
             updatedPlanet.setSizeComparedToEarth(planetBody.getSizeComparedToEarth());
