@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(path = "/auth/astronomers")
 public class AstronomerController {
@@ -18,7 +20,7 @@ public class AstronomerController {
    }
 
    @PostMapping(path = "/register")
-   public Astronomer createAstronomer(@RequestBody Astronomer astronomerBody) {
+   public Astronomer createAstronomer(@RequestBody @Valid Astronomer astronomerBody) {
       return astronomerService.createAstronomer(astronomerBody);
    }
 

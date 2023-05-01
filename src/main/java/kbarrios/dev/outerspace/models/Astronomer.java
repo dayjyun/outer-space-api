@@ -23,6 +23,7 @@ public class Astronomer {
    private String username;
 
    @Column(unique = true, nullable = false)
+   @Email(message = "Please provide a valid email")
    private String email;
 
    @Column
