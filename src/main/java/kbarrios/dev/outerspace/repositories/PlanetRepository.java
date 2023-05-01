@@ -3,8 +3,12 @@ package kbarrios.dev.outerspace.repositories;
 import kbarrios.dev.outerspace.models.Planet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PlanetRepository extends JpaRepository<Planet, Long> {
-   Planet findPlanetById(Long planetId);
+import java.util.Optional;
 
-   Planet findPlanetByName(String planetName);
+public interface PlanetRepository extends JpaRepository<Planet, Long> {
+   Optional<Planet> findPlanetByNameAndAstronomerId(String planetName, Long astronomerId);
+
+   Optional<Planet> findPlanetByIdAndAstronomerId(Long planetId, Long astronomerId);
+
+   Optional<Planet> findPlanetByNameAndSolarSystemId(String planetName, Long solarSystemId);
 }
