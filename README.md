@@ -3,10 +3,11 @@
 Let's have some fun by creating your own universee! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
 
 ## Technologies Used
-- Java
-- IntelliJ IDEA
-- Spring Boot
-- PostgreSQL
+- [Java](https://www.java.com/en/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- [Spring Boot](https://spring.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [pgAdmin](https://www.pgadmin.org/)
 - [Maven](https://mvnrepository.com/)
 - GitHub Branching
 - GitHub Stories
