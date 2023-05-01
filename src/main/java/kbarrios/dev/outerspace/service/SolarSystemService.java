@@ -2,14 +2,11 @@ package kbarrios.dev.outerspace.service;
 
 import kbarrios.dev.outerspace.exceptions.AlreadyExistsException;
 import kbarrios.dev.outerspace.exceptions.NotFoundException;
-import kbarrios.dev.outerspace.models.Astronomer;
 import kbarrios.dev.outerspace.models.Planet;
 import kbarrios.dev.outerspace.models.SolarSystem;
 import kbarrios.dev.outerspace.repositories.PlanetRepository;
 import kbarrios.dev.outerspace.repositories.SolarSystemRepository;
-import kbarrios.dev.outerspace.security.AstronomerDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
