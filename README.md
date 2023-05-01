@@ -76,7 +76,7 @@ One of the major issues during development is trying to implent features not lea
 ## Future
 Much like in an ever-expanding universe, there's also a never-ending expansion in code.
 - [ ] Add a **Moons** model
-- [ ] Come up with a **ManyToMany** model such as many **Astronomers** can visit many **Solar **Systems
+- [ ] Come up with a **ManyToMany** model such as many **Astronomers** can visit many **Solar Systems**
 - [ ] Set custom errors to return more user-friendly errors
 - [ ] Fix `@Email` annotation issue creating a 400 Bad Request when logging in
 - [ ] Create customer validators to check JSON body when using a **POST** and **PUT** request
@@ -84,4 +84,4 @@ Much like in an ever-expanding universe, there's also a never-ending expansion i
 - [ ] Generate a local time for Astronomer when creating a new **Planet** or **Solar System** instead of returning UTC time
 
 ## Acknowledgements
-A special thanks to [Dominique Akers](https://github.com/Dommy99), [Jaime Padilla](https://github.com/Jaypad07), and [Velvet Pugh](https://github.com/vnpugh) for providing fun company sparking up a converstation every random often. And an extra special thanks to [Jeff Ou](https://github.com/pophero110) and [Maksym Zinchenko](https://github.com/maklaut007) for help with tackling issues throughout the code.
+A special thanks to [Dominique Akers](https://github.com/Dommy99), [Jaime Padilla](https://github.com/Jaypad07), and [Velvet Pugh](https://github.com/vnpugh) for providing fun company sparking up a converstation every random often. And an extra special thanks to [Jeff Ou](https://github.com/pophero110) and [Maksym Zinchenko](https://github.com/maklaut007) for help with tackling issues throughout the process.
