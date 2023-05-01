@@ -63,3 +63,17 @@ Just watch out. Some of these endpoints require an authorized user! That's where
 
 ## Planning
 When it comes to coding, I want to fast foward to the middle of the project where I have thousands of lines of code written out and I'm brainstorming ways to resolve a bug. But before that, it may be even more intuitive to start the planning process before diving right in. The **[User Stories](https://github.com/dayjyun/outer-space-api/wiki/User-Stories)** highlight an excellent representation of the thinking process and ideas of what the application should accomplish. The next stage in the planning process is coming up with the endpoints desired to create throughout the journey. Using the **[Project Board](https://github.com/users/dayjyun/projects/6)** provided a foundational vision of what each endpoint should accomplish as well as organization and a simple way to know my progress for each task.
+
+Here is a [snapshot of the diagram](https://dbdiagram.io/d/644ad886dca9fb07c42b4c62) which illustrates the relationships for each mdoel.
+
+<img width="" alt="outer space api database diagram" src="">
+
+## Future
+In a ever-expanding universe, there's also a never-ending expansion in code.
+- [ ] Set custom errors to return more user-friendly errors
+- [ ] Fix `@Email` issue creating a 400 error when logging in
+- [ ] Include a links to gifs for corresping
+- [ ] Generate a local time for Astronomer when creating a new **Planet** or **Solar System** instead of returning UTC time
+
+## Acknowledgements
+A special thanks to [Dominique Akers](https://github.com/Dommy99), [Jaime Padilla](https://github.com/Jaypad07), and [Velvet Pugh](https://github.com/vnpugh) for providing fun company sparking up a converstation every random often. And an extra special thanks to [Jeff Ou](https://github.com/pophero110) and [Maksym Zinchenko](https://github.com/maklaut007) for help with tackling issues throughout the code.
