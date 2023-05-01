@@ -26,9 +26,7 @@ public class AstronomerService {
    private AstronomerDetails astronomerDetails;
 
    public static Astronomer getLoggedInAstronomer() {
-      AstronomerDetails astronomerDetails = (AstronomerDetails) SecurityContextHolder.getContext()
-                                                                                     .getAuthentication()
-                                                                                     .getPrincipal();
+      AstronomerDetails astronomerDetails = (AstronomerDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
       return astronomerDetails.getAstronomer();
    }
 
@@ -59,8 +57,6 @@ public class AstronomerService {
    }
 
    public ResponseEntity<?> loginUser(LoginRequest loginRequest) {
-//      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
-//      loginRequest.getPassword());
       try {
          Authentication authentication = authenticationManager
                  .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));

@@ -45,6 +45,7 @@ public class SecurityConfiguration {
                   "/auth/astronomers/register",
                   "/auth/astronomers/login").permitAll()
           .antMatchers(HttpMethod.GET,
+                  "/auth/astronomers/whoAmI",
                   "/api/solar-systems",
                   "/api/solar-systems/{solarSystemId}",
                   "/api/planets",
