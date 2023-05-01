@@ -37,7 +37,7 @@ public class PlanetService {
     * Searches through the database and returns an Optional of the planet record with the specified ID
     * If the planet is not found with the specified ID, a NotFoundException is thrown.
     * @param planetId
-    * @return Planet optional containing details about the planet record
+    * @return Planet Optional containing details about the planet record
     * throws NotFoundException: Planet with ID planetId is not found
     */
 
@@ -51,11 +51,11 @@ public class PlanetService {
    }
 
    /**
-    * Creates a new planet record with the planet's data saved into the database
+    * Creates a new planet record with the Planet's data saved into the database
     * An Optional is used to check for a logged-in user
-    * THen it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
-    * If the check for the name passes, it will complete another check to make sure the Astronomer enters a name. If no name is provided,
-    * it will throw a NotFoundException
+    * Then it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
+    * If the check for the Planet's name passes, it will complete another check to make sure the Astronomer enters a name. If no name is
+    * provided, it will throw a NotFoundException
     * @param planetBody
     * @return Newly created Planet object
     * throws AlreadyExistException: Your new Planet needs a name
@@ -78,15 +78,16 @@ public class PlanetService {
 
    /**
     * Updates an existing Planet record by searching the given Planet ID.
-    * Throws a NotFoundException if the ID given is not found
-    * If the planet is not found with the specified ID, a NotFoundException is thrown.
-    * THen it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
-    * If the check for the name passes, it will complete another check to make sure the Astronomer enters a name
+    * Throws a NotFoundException if the ID given is not found within the database
+    * Then it checks if the name of the planet provided is used by a different planet. If it does, it will throw a AlreadyExistsException
+    * If the check for the Planet's name passes, it will complete another check to make sure the Astronomer enters a name for the Planet as
+    * the
+    * name field cannot be empty
     * @param planetId
     * @param planetBody
     * @return Updated Planet object
     * throws NotFoundException: Planet with ID planetId is not found
-    * throws AlreadyExistsException: Plnaet with the name planet.getName already exists
+    * throws AlreadyExistsException: Planet with the name planet.getName already exists
     */
 
    public Planet updatePlanet(Long planetId, Planet planetBody) {
@@ -110,7 +111,7 @@ public class PlanetService {
 
    /**
     * Removes a planet from the database by searching through the given Planet ID
-    * If the Planet with the given ID is not found, a NotFoundException is thrown
+    * If the Planet is not found with the given ID, a NotFoundException is thrown
     * @param planetId
     * @return Details of deleted Planet
     * throws NotFoundException: Planet with ID planetID is not found
