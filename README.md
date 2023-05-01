@@ -1,4 +1,4 @@
-# Outer Space API
+# ✨Outer Space API ✨
 
 Let's have some fun by creating your own universee! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
 
@@ -16,8 +16,8 @@ Just watch out. Some of these endpoints require an authorized user! That's where
 - [pgAdmin](https://www.pgadmin.org/)
 - [Postman](https://www.postman.com/)
 - GitHub Branching
-- GitHub Stories
-- GitHub KanBan Board
+- [GitHub Stories](https://github.com/dayjyun/outer-space-api/wiki/User-Stories)
+- [GitHub Project Board](https://github.com/users/dayjyun/projects/6)
 - [dbdiagram.io](https://dbdiagram.io/home)
 
 <details>
@@ -58,5 +58,8 @@ Just watch out. Some of these endpoints require an authorized user! That's where
 ### Astronomers
 | Request Type 	| URL                                    	      |           Functionality              |        Access        	|
 | -------------	| --------------------------------------------	| ------------------------------------ | ----------------------	|
-| GET          	| /api/planets                	                | Gets all Planets                     | Public               	|
-| GET          	| /api/planets/{planetId}                       | Gets a Planet for Provided ID        | Public                	|
+| POST         	| /auth/astronomers/register   	                | Registers a new Astronomer           | Public               	|
+| POST         	| /auth/astronomers/login                       | Logs in a registered Astronomer      | Public                	|
+
+## Planning
+When it comes to coding, I want to fast foward to the middle of the project where I have thousands of lines of code written out and I'm brainstorming ways to resolve a bug. But before that, it may be even more intuitive to start the planning process before diving right in. The **[User Stories](https://github.com/dayjyun/outer-space-api/wiki/User-Stories)** highlight an excellent representation of the thinking process and ideas of what the application should accomplish. The next stage in the planning process is coming up with the endpoints desired to create throughout the journey. Using the **[Project Board](https://github.com/users/dayjyun/projects/6)** provided a foundational vision of what each endpoint should accomplish as well as organization and a simple way to know my progress for each task.
