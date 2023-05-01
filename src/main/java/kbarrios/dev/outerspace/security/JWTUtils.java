@@ -22,7 +22,7 @@ public class JWTUtils {
    // One time!
    public String generateJwtToken(AstronomerDetails astronomerDetails) {
       return Jwts.builder()
-                 .setSubject((astronomerDetails.getUsername())) // just the user email
+                 .setSubject((astronomerDetails.getUsername()))
                  .setIssuedAt(new Date())
                  .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                  .signWith(SignatureAlgorithm.HS256, jwtSecret)
