@@ -68,11 +68,19 @@ Here is a [snapshot of the diagram](https://dbdiagram.io/d/644ad886dca9fb07c42b4
 
 <img width="" alt="outer space api database diagram" src="">
 
+Also, if you're lucky enough to run into a few Client error responses, you may notice a few of the messages returned may be a little familiar quoted from a movie from *long time ago in a galaxy far, far aaway...*
+
+## Hurdles
+One of the major issues during development is trying to implent features not learned in class. I had created custom validators to check whether an email entered was not a valid email, or if a name field was missing or already used. However, over time the functionality of the validators prevented endpoints from returning successful responses so I had no choice but to remove them. 
+
 ## Future
-In a ever-expanding universe, there's also a never-ending expansion in code.
+Much like in an ever-expanding universe, there's also a never-ending expansion in code.
+- [ ] Add a **Moons** model
+- [ ] Come up with a **ManyToMany** model such as many **Astronomers** can visit many **Solar **Systems
 - [ ] Set custom errors to return more user-friendly errors
-- [ ] Fix `@Email` issue creating a 400 error when logging in
-- [ ] Include a links to gifs for corresping
+- [ ] Fix `@Email` annotation issue creating a 400 Bad Request when logging in
+- [ ] Create customer validators to check JSON body when using a **POST** and **PUT** request
+- [ ] Include a links to Star Wars gifs for corresponding error messages
 - [ ] Generate a local time for Astronomer when creating a new **Planet** or **Solar System** instead of returning UTC time
 
 ## Acknowledgements
