@@ -1,6 +1,6 @@
 # ✨Outer Space API ✨
 
-Let's have some fun by creating your own universee! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
+Let's have some fun by creating your own universe! With the **Outer Space API**, you can create your own Solar Systems and Planets! Sit back, and travel through your own universe from the comfort of your keyboard!
 
 ## Get Started
 The environment is set up and ready to use! Simply create a database named **outerSpace** in the **pgAdmin** app, and run the <a href="#endpoints">endpoints</a> using **Postman**.
